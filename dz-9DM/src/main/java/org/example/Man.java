@@ -3,8 +3,8 @@ package org.example;
 public class Man extends Person {
     private boolean hasBike;
 
-    public Man(String firstName, String lastName, int age, boolean partner, boolean hasBike) {
-        super(firstName, lastName, age, partner);
+    public Man(String firstName, String lastName, int age, boolean hasBike) {
+        super(firstName, lastName, age);
         this.hasBike = hasBike;
     }
 
@@ -14,6 +14,11 @@ public class Man extends Person {
 
     public void setHasBike(boolean hasBike) {
         this.hasBike = hasBike;
+    }
+
+    @Override
+    public boolean isRetired() {
+        return this.age > 65;
     }
 
     @Override

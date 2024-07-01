@@ -2,29 +2,26 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        try {
-            Man man = new Man("John", "Doe", 30, true, true);
-            Woman woman = new Woman("Jane", "Smith", 28, true, true, true, true, true);
+        Man man = new Man("John", "Doe", 66, true);
+        Woman woman = new Woman("Jane", "Smith", 61, true);
 
-            // Перевірка реєстрації партнерства
-            if (woman.checkAndRegisterPartnership(man)) {
-                System.out.println("Partnership registered successfully.");
-            } else {
-                System.out.println("Partnership not registered.");
-            }
+        // Display initial info
+        System.out.println("--- Initial Information ---");
+        man.displayInfo();
+        woman.displayInfo();
+        System.out.println();
 
-            woman.displayInfo();
+        // Register partnership
+        man.registerPartnership(woman);
+        System.out.println("--- After Registering Partnership ---");
+        man.displayInfo();
+        woman.displayInfo();
+        System.out.println();
 
-            woman.setDeregisterPartnership(true);
-            if (woman.returnDeregisterPartnership("Smith")) {
-                System.out.println("Partnership deregistered successfully.");
-            } else {
-                System.out.println("Partnership not deregistered.");
-            }
-
-            woman.displayInfo();
-        } catch (IllegalArgumentException e) {
-            System.out.println("Error: " + e.getMessage());
-        }
+        // Deregister partnership
+        man.deregisterPartnership(true);
+        System.out.println("--- After Deregistering Partnership ---");
+        man.displayInfo();
+        woman.displayInfo();
     }
 }
